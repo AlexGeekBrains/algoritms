@@ -1,4 +1,4 @@
-package ru.alex.java.algoritm;
+package ru.alex.java.algoritm.less1;
 
 public class HomeWork1 {
     public static void main(String[] args) {
