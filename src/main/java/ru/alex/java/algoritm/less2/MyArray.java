@@ -66,13 +66,10 @@ public class MyArray {
             this.arr = new int[old.length * 2];
             System.arraycopy(old, 0, arr, 0, old.length);
         }
-        int[] arrLeft = new int[idx + 1];
-        System.arraycopy(arr, 0, arrLeft, 0, idx);
-        arrLeft[idx] = value;
-        int[] arrRight = new int[capacity - idx];
-        System.arraycopy(arr, idx, arrRight, 0, capacity - idx);
-        System.arraycopy(arrLeft, 0, arr, 0, arrLeft.length);
-        System.arraycopy(arrRight, 0, arr, idx + 1, arrRight.length);
+        int[] arrRight = new int[capacity - idx+1];
+        System.arraycopy(arr, idx, arrRight, 1, capacity - idx);
+        arrRight [0]= value;
+        System.arraycopy(arrRight, 0, arr, idx, arrRight.length);
         capacity++;
     }
 
