@@ -2,6 +2,19 @@ package ru.alex.java.algoritm.less3;
 
 public class Main {
     public static void main(String[] args) {
+
+        Queue queue = new Queue(3);
+        queue.insert(1);
+        queue.insert(2);
+        System.out.println(queue.remove());
+        queue.insert(3);
+        System.out.println(queue.remove());
+        queue.insert(4);
+        queue.insert(5);
+        queue.insert(6);
+        queue.insert(7);
+        System.out.println(queue.remove());
+
         PriorityQueue priorityQueue = new PriorityQueue(4);
         priorityQueue.insert(30);
         priorityQueue.insert(50);

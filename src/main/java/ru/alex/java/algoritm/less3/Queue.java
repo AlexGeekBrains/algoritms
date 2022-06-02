@@ -15,9 +15,17 @@ public class Queue {
         items = 0;
     }
 
-    public boolean isEmpty() { return (items == 0); }
-    public boolean isFull() { return (items == maxSize); }
-    public int size() { return items; }
+    public boolean isEmpty() {
+        return (items == 0);
+    }
+
+    public boolean isFull() {
+        return (items == maxSize);
+    }
+
+    public int size() {
+        return items;
+    }
 
     public void insert(int i) {
         if (isFull()) {
@@ -29,9 +37,9 @@ public class Queue {
                 System.arraycopy(queue, 0, tmpArr, 0, tail + 1);
                 System.arraycopy(queue, head, tmpArr,
                         maxSize - (queue.length - head), queue.length - head);
-                head = maxSize - head - 1;
+                head = tmpArr.length - (queue.length - head); // поправил код с урока
             }
-            queue=tmpArr;
+            queue = tmpArr;  //на уроке не переназначили ссылку на массив
         }
         if (tail == maxSize - 1) {
             tail = -1;
@@ -41,13 +49,20 @@ public class Queue {
     }
 
     public int remove() {
-        int temp =  queue[head++];
-        head %= maxSize;
-        items--;
-        return temp;
+       if(!isEmpty()){
+           int temp = queue[head++];
+           head %= maxSize;
+           items--;
+           if (isEmpty()) {
+               tail = -1;
+               head = 0;
+           }
+           return temp;
+       }
+        throw new RuntimeException("Queue is empty");
     }
 
-    public int peek(){
+    public int peek() {
         return queue[head];
     }
 }
