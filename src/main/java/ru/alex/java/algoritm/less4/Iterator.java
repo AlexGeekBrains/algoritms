@@ -58,7 +58,7 @@ public class Iterator {
         Node newNode = new Node(cat);
         if (!list.isEmpty()) {
             if (curr.getPrevious() != null) {
-                curr.getPrevious().setNext(curr);
+                curr.getPrevious().setNext(newNode);
             } else {
                 list.setHead(newNode);
             }
