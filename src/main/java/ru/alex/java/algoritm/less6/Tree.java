@@ -1,6 +1,8 @@
 package ru.alex.java.algoritm.less6;
 
+import lombok.Getter;
 
+@Getter
 public class Tree {
     private TreeNode root;
 
@@ -61,7 +63,7 @@ public class Tree {
 
 
     //вычисляем глубину дерева
-    private int maxDepth(TreeNode root) {
+    public int maxDepth(TreeNode root) {
         if (root == null)
             return 0;
         int left_Depth = maxDepth(root.getLeftChild());
